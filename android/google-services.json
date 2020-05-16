@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "955243173449",
+    "firebase_url": "https://red-tails-2fe22.firebaseio.com",
+    "project_id": "red-tails-2fe22",
+    "storage_bucket": "red-tails-2fe22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955243173449:android:817be6c42808310f055198",
+        "android_client_info": {
+          "package_name": "com.igti.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955243173449-96f6tuc8mli7o3q9d1t4h6qtcs2uu6f8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.igti.game",
+            "certificate_hash": "0adaa26bcb46dd295c6b7b2b28786ac4c9238e19"
+          }
+        },
+        {
+          "client_id": "955243173449-qj6a6bb0o5m7fp6rpkmu4uv57sqr84mf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp7cZQq8LZIgOzePjz_Ta3Jwo92folL2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955243173449-qj6a6bb0o5m7fp6rpkmu4uv57sqr84mf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

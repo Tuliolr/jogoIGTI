@@ -29,7 +29,7 @@ public class Jogo extends ApplicationAdapter {
 	private Texture obsBaixo;
 	private Texture obsTopo;
 	private Texture gameOver;
-	//private Texture gol;
+	private Texture gol;
 
 	//Formas para colisão
 	private ShapeRenderer shapeRenderer;
@@ -45,6 +45,8 @@ public class Jogo extends ApplicationAdapter {
 	private float posicaoPassaroY = 0;
 	private float posicaoObsX;
 	private float posicaoObsY;
+	private float posicaoGolX;
+	private float posicaoGolY;
 	private float espacoEntreObs;
 	private Random random;
 	private int pontos = 0;
@@ -105,8 +107,9 @@ public class Jogo extends ApplicationAdapter {
 		batch.draw(chao,0,0, larguraDispositivo, 100);
 		batch.draw(aviao[ (int) variacao],50 + posicaoHorizontalAviao,posicaoPassaroY );
 		batch.draw(obsBaixo, posicaoObsX, alturaDispositivo / 2 - obsBaixo.getHeight() - espacoEntreObs / 2 + posicaoObsY );
-		//batch.draw(gol, posicaoObsX, alturaDispositivo /2 - gol.getHeight() - espacoEntreObs / 2 + posicaoObsY );
+
         batch.draw(obsTopo, posicaoObsX , alturaDispositivo / 2 + espacoEntreObs / 2 + posicaoObsY );
+		batch.draw(gol, -260+ posicaoGolX, alturaDispositivo /2 - gol.getHeight() - espacoEntreObs / 2 + posicaoGolY );
 		textoPontuacao.draw(batch, String.valueOf(pontos), larguraDispositivo / 2, alturaDispositivo -110);
 
 		if(estadoJogo == 2) {
@@ -149,6 +152,14 @@ public class Jogo extends ApplicationAdapter {
 				passouCano = false;
 			}
 
+
+			posicaoGolX -= Gdx.graphics.getDeltaTime() * 500;
+			if(posicaoGolX < -obsTopo.getWidth()){
+				posicaoGolX  = larguraDispositivo;
+				posicaoGolY = random.nextInt(600) ;
+				passouCano = false;
+			}
+
 			//Aplica gravidade no aviao 400 -(-20) = 420
 			if (posicaoPassaroY > 0 || toqueTela)
 				posicaoPassaroY = posicaoPassaroY - gravidade;
@@ -179,6 +190,7 @@ public class Jogo extends ApplicationAdapter {
 				posicaoHorizontalAviao = 0;
 				posicaoPassaroY = alturaDispositivo / 2;
 				posicaoObsX = larguraDispositivo;
+				posicaoGolX = larguraDispositivo;
 
 			}
 
@@ -253,15 +265,15 @@ public class Jogo extends ApplicationAdapter {
 	private void inicializarTexturas(){
 
 		aviao = new Texture[3];
-		aviao[0] = new Texture("aviao1.png");
-		aviao[1] = new Texture("aviao2.png");
-		aviao[2] = new Texture("aviao3.png");
+		aviao[0] = new Texture("personagem.png");
+		aviao[1] = new Texture("personagem2.png");
+		aviao[2] = new Texture("personagem3.png");
 
-		fundo = new Texture("fundo2.png");
-		//gol = new Texture("gol.png");
-		obsBaixo = new Texture("cano_baixo_maior.png");
-		obsTopo = new Texture("cano_topo_maior.png");
-		chao = new Texture("chao.png");
+		fundo = new Texture("bg.png");
+		gol = new Texture("gol2.png");
+		obsBaixo = new Texture("cano_baixo_azul.png");
+		obsTopo = new Texture("cano_topo_azul.png");
+		chao = new Texture("rocks2.png");
 		gameOver = new Texture("GameOver.png");
 	}
 
